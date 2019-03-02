@@ -34,16 +34,16 @@ int main(){
 			case 2:
 				if(number>0){
 					digit=number/10;
-					//printf("digit deci== %d\n",digit);
+//					printf("digit deci== %d\n",digit);
 					if(digit>1){
 						sum+=strlen(strings[digit-1+19]);   //strlen(strings[digit-1])+strlen(strings[digit+18]);
-						printf("_--- %s",strings[digit-1+19]);
-					}else{
+						printf(" %s",strings[digit-1+19]);
+					}else if(digit>0){
 						if(number%10>0){
-							printf("==++ %s++=\n",strings[digit-1+(number%10)+10]);
+							printf(" %s\n",strings[digit-1+(number%10)+10]);
 							sum+=strlen(strings[digit-1+(number%10)+10]);
 						}else{
-							printf("++ == %s===\n",strings[digit-1+10]);
+							printf(" %s\n",strings[digit-1+10]);
 							sum+=strlen(strings[digit-1+10]);
 						}
 
@@ -56,8 +56,10 @@ int main(){
 				if(number>0){
 					digit=number/100;
 					//			printf("digit +++ %d\n",digit);
-					sum+=strlen("hundred")+strlen(strings[digit]);
-					printf("%s hundred ",strings[digit]);
+					if(digit>0){
+						sum+=strlen("hundred")+strlen(strings[digit]);
+						printf("%s hundred ",strings[digit]);
+					}
 					number=number%100;
 					if(number>0){
 						printf("and ");
